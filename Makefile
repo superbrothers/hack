@@ -1,4 +1,4 @@
-IMAGE_NAME := superbrothers/hack
+IMAGE_NAME := docker.io/superbrothers/hack
 
 .PHONY: build
 build:
