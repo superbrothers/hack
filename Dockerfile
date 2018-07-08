@@ -1,6 +1,7 @@
 FROM debian:stable
 
 ENV HUB_VERSION=2.4.0
+ENV KUBECTL_VERSION=1.11.0
 
 RUN set -x && \
     apt-get -qq update && \
@@ -18,3 +19,9 @@ RUN echo "Install github/hub" && \
     hub-linux-amd64-${HUB_VERSION}/install && \
     rm -rf hub-linux-amd64-${HUB_VERSION} && \
     hub --version
+
+RUN echo "Install kubectl" && \
+    set -x && \
+    curl -sL -o /usr/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl && \
+    chmod +x /usr/bin/kubectl && \
+    kubectl version --client
