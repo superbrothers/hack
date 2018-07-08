@@ -1,6 +1,6 @@
 FROM debian:stable
 
-ARG HUB_VERSION=2.4.0
+ENV HUB_VERSION=2.4.0
 
 RUN set -x && \
     apt-get -qq update && \
